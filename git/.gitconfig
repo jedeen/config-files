@@ -1,0 +1,55 @@
+[alias]
+  
+  a = add
+
+  b = branch
+  
+  # list all remote branches with hash and commit message for each head
+  br = branch -rv
+
+  # list all local and remote branches with hash and commit message for each head
+  ba = branch -av
+  
+  # delete a branch only if it has been merged
+  bd = branch -d
+
+  c = commit
+  
+  # commit with the given message (cm "the commit message")
+  cm = commit -m
+
+  co = checkout
+
+  # checkout a new branch
+  cob = checkout -b
+
+  # fetch and prune remote-tracking branches that no longer exist on the remote
+  f = fetch -p
+
+  l = log                   
+  
+  # log in a pretty format
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(red)- <%an>%C(reset)%C(bold yellow)%d%C(reset)'
+  
+  p = push
+
+  # short-format status
+  s = status -s
+  
+  # list aliases
+  aliases = config --get-regexp alias
+
+  # list tags
+  tags = tag -l
+
+  ch = cherry
+
+  # count the number of commits that are on the current branch and not on the specified upstream 'b'
+  chc = "!b() { git cherry $1 | wc -l; }; b"
+
+  # start an interactive rebase with 'x' number of latest commits
+  rb = "!x() { git rebase -i HEAD~$1; }; x"
+
+  # start an interactive rebase of all commits not yet on the specified upstream 'b'
+  # this is essentially a combination of the above 'chc' and 'rb' aliases
+  chrb = "!b() { git cherry $1 | wc -l | xargs -I{} git rebase -i HEAD~{}; }; b"
