@@ -15,7 +15,7 @@
 
   c = commit
   
-  # commit with the given message (cm "the commit message")
+  # commit with the given message
   cm = commit -m
 
   co = checkout
@@ -23,12 +23,15 @@
   # checkout a new branch
   cob = checkout -b
 
+  # list the last 5 branches checked out in the repository
+  coh = for-each-ref --sort=-committerdate --count=5 --format='%(refname:short)' refs/heads/
+
   # fetch and prune remote-tracking branches that no longer exist on the remote
-  f = fetch -p
+  f = fetch
 
   l = log                   
   
-  # log in a pretty format
+  # log in the format: commit_hash - (time_since_commit) commit_message - <commit_author> (ref_name_list)
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(red)- <%an>%C(reset)%C(bold yellow)%d%C(reset)'
   
   p = push
@@ -43,6 +46,9 @@
   tags = tag -l
 
   ch = cherry
+
+  # show commit hashes and commit subjects not yet applied to upstream branch
+  chv = cherry -v
 
   # count the number of commits that are on the current branch and not on the specified upstream 'b'
   chc = "!b() { git cherry $1 | wc -l; }; b"
