@@ -1,0 +1,6 @@
+{
+    "editor.renderIndentGuides": true,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "workbench.editor.highlightModifiedTabs": true
+}
