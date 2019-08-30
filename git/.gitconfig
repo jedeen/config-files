@@ -12,6 +12,9 @@
   
   # delete a branch only if it has been merged
   bd = branch -d
+  
+  # rename a branch (br "new-branch-name")
+  br = branch -m
 
   c = commit
   
