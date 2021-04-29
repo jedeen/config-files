@@ -40,6 +40,9 @@
   # short-format status
   s = status -s
   
+  # list the git stash with the relative time they were stashed (e.x. 3 hours ago, 2 days ago)
+  sr = stash list --date=relative
+  
   # list aliases
   aliases = config --get-regexp alias
 
